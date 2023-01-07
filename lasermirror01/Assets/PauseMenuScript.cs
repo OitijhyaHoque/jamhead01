@@ -13,6 +13,10 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject pauseMenu, optionsMenu;
     public GameObject resumeButton, optionsButton, exitButton, exitOptionsButton;
     public Button resumeButtonButton, optionsButtonButton, exitButtonButton, exitOptionsButtonButton;
+
+    public Slider audioSlider, controlSlider;
+
+    public AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,19 +76,28 @@ public class PauseMenuScript : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(exitOptionsButton);
+
+        audioSlider.value = PlayerPrefs.GetFloat("audio", 1f);
+        controlSlider.value = PlayerPrefs.GetFloat("sense", 0.5f);
     }
 
     void OptionMenuCloser()
     {
-        optionsMenu.SetActive(false);
-        pauseMenu.SetActive(true);
+        
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(resumeButton);
+
+        PlayerPrefs.SetFloat("audio", audioSlider.value);
+        PlayerPrefs.SetFloat("sense", controlSlider.value);
+        audioManager.change();
+
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     void GotoMainMenu()
     {
-        SceneManager.LoadScene("MainMenu02");
+        SceneManager.LoadScene("MainMenu");
     }
 }
