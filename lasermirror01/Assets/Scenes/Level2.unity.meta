@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:lasermirror01/Assets/Scenes/Level2.unity.meta
 guid: 40dba3d9aabfdd248a2f15ae9e77ee14
+========
+guid: fc985b6158ec1494ba717c0a0aa13ccc
+folderAsset: yes
+>>>>>>>> 8657962289949ff687dd69b0c5550359e632a01f:lasermirror01/Assets/2D_sci-fi_weapon.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
